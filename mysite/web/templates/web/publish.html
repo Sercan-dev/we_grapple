@@ -1,0 +1,28 @@
+
+{% block title %}Staff |{% endblock %}
+{% block content %}
+
+<div class="ui-container">
+    <div>
+        
+        <div class="ui-container">
+        <form action="{% url 'web:toggle_publish' id=post.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" id="toggle-publish" value="{% if post.published %}Unpublish{% else %}Publish{% endif %}" />
+        </form>
+    </div>
+    </div>
+    <p>publish settings</p>
+
+    <br />
+        <div class="ui-container">
+                <h4>{{ post.title}}</h4>
+                <h6><small>by {{ post.user.username }} on {{ post.timestamp | date}}</small></h6>
+                <hr>
+                <p>{{ post.content }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

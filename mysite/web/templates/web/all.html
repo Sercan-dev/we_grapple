@@ -1,0 +1,21 @@
+
+{% block title %}Staff | {{ block.super}}{% endblock %}
+
+{% block content %}
+
+<div class="ui-container">
+{% for post in web %}
+
+<div>
+    <div>
+        <h4>{{ post.title | safe }}</h4>
+        <h6><small>by {{ post.user.username }} on {{ post.timestamp | date}}</small></h6>
+        <hr >
+        <p>{{ post.content | safe | linebreaks }}</p>
+        <a href="{% url 'web:toggle_publish' id=post.id %}">Manage Post</a>
+    </div>
+</div>
+
+{% endfor %}
+</div>
+{% endblock %}

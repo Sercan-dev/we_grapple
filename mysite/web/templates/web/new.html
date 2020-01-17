@@ -1,0 +1,19 @@
+
+
+
+<div class="ui-container">
+    <h6>Write your News article here:</h6>
+    <form action="{% url 'web:new' %}" method="POST">
+        {% csrf_token %}
+        {{ form.title }}
+        {{ form.content }}
+        {{ form.timestamp.label }}
+        <div>
+            <div>
+                {{ form.timestamp }}
+            </div>
+        </div>
+        <input type="submit" id="id_submit"  value="Next"/>
+    </form>
+</div>
+

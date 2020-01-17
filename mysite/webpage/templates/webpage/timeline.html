@@ -1,0 +1,39 @@
+{% extends 'webpage/base.html' %}
+
+{% block blogContent %}
+
+    {% if request.user.is_authenticated %}
+    <div class="ui raised very padded text container segment">
+        <div class="ui form">
+            <form class="field" action="{% url 'webpage:create_post' %}" method="post">
+                {{ post_form }}
+                {% csrf_token %}
+                <button class="mini ui yellow button" type="submit">Senden</button>
+            </form>
+        </div>
+    {% endif %}
+
+        {% for post in posts %}
+        <div class="ui clearing divider"></div>
+
+            <p>
+                {{ post.message }} - {{ post.created_at }}
+                <a class="circular ui icon button" href="{{ post.get_absolute_url }}"><i class="user circle icon"></i>{{ post_id }}</a>
+            </p>
+
+            {% if post.user == request.user %}
+            <form action="{% url 'webpage:delete_post' post.id %}" method="post">
+                {% csrf_token %}
+                <button class="mini ui red button" type="submit">Löschen</button>
+            </form>
+            {% endif %}
+        {% empty %}
+            {% if user == request.user %}
+            <p>Du hast noch nichts geteilt.</p>
+            {% else %}
+            <p>Der User {{ user.username }} hat noch nichts geteilt.</p>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+{% endblock %}

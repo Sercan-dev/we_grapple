@@ -1,0 +1,170 @@
+<head xmlns="http://www.w3.org/1999/html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+
+</head>
+
+<body>
+    <header>
+        <div>
+            <img class="ui fluid image" style="height:400px;margin:0;" src="{{ MEDIA_URL }}main_pic.png">
+        </div>
+    </header>
+    <div class="ui inverted segment">
+        <div class="ui inverted secondary menu">
+            <ul class="left menu" style="list-style-type:none;">
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url 'web:logout' %} ">Logout</a></li>
+                {% else %}
+                <li><a class="item" href="{% url 'web:index' %} ">Home</a></li>
+                <li><a class="active yellow item" href="{% url 'web:rules' %}">Rules</a></li>
+                <li><a class="item" href="{% url 'web:gallery' %}">Gallery</a></li>
+                <li><a class="item" href="{% url 'web:login' %} ">Login</a></li>
+                <li><a class="item" href="{% url 'web:register' %} ">Register</a></li>
+                <li><a class="item" href="#">Contact</a></li>
+                <li><a class="item" href="https://www.facebook.com/wegrapple/"><i class="large facebook square icon"></i></a></li>
+                <li><a class="item" href="https://www.instagram.com/wegrapple/"><i class="large instagram icon"></i></a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <video autoplay controls
+           src="https://www38.online-convert.com/dl/web2/download-file/1d764805-f0a5-4b72-b9f6-b11eda95edd4/getfvid_10000000_608903342934393_6619183829210694498_n.mov"
+           width="100%"
+           height="600">
+    </video>
+    <div class="ui raised very padded text container segment">
+        <section id="showcase">
+            <div class="ui container">
+                <h1>New rules for an old game</h1>
+                <p>
+                    <p>
+                        <p>
+                        1. RUNDENLAUF - VERFAHREN UND PLAYOFF
+                        </p>
+                        #weGrapple ermöglicht es jedem Kämpfer mehrere Kämpfe zu haben. Das System basiert im ersten Schritt auf einem Rundlauf-Verfahren in dem zunächst alle Kämpfer einer Division innerhalb eines Pools gegeneinander antreten. Es kämpft innerhalb dieser Pools also „Jeder gegen Jeden“.
+                        Wenn in einer Division bis zu 7 Kämpfer sind, wird es einen Pool mit einem Rundlauf-Verfahren geben. Bei 8 oder mehr Kämpfern innerhalb einer Division werden zwei oder mehrere Pools gebildet mit 4-5 Kämpfern pro Pool. Die Gewinner der Rundlauf-Verfahren schreiten dann in die Single-Eliminationsphase voran.
+                        Die besten Kämpfer der Division werden dann in diesem Standard Single-Elimination Format um die ersten 3 Plätze kämpfen.
+                        Bsp.: 2 Pools mit 5 Kämpfern -->2 besten Kämpfer steigen in die Standard Single-Elimination auf und kämpfen im KO-System um den ersten Platz. Der dritte Platz wird auch ausgekämpft werden.
+                    </p>
+                    <p>
+                        <p>
+                        2. DIVISIONEN
+                        </p>
+                        Adults ( bis 30 Jahre, geboren ab 1989) und Master (über 30 Jahre, geboren vor und in 1988) werden unterschieden in:
+                        -Anfänger (Jiu Jitsu Weißgurte und Luta Livre Weiß- und Gelbgurte / etwa 0 bis 18 Monate Grappling Erfahrung);
+                        Mittelstufe (Jiu Jitsu Blaugurte / Luta Livre Orange- und Blaugurte / etwa 18 Monate bis 3 Jahre Grappling Erfahrung);
+                        Fortgeschrittene (Jiu Jitsu oder Luta Livre Lilagurte / etwa 3 bis 6 Jahre Grappling Erfahrung)
+                        Elite (Jiu Jitsu und Luta Livre Braun- und Schwarzgurte / mehr als 6 Jahre Grappling Erfahrung)
+                        Wir weisen darauf hin, dass wir strickt gegen „sand bagging“ sind. Falls ihr bereits weitreichende Erfahrungen in einer Grappling-Sportart habt (z.B. Judo Schwarzgurt oder ein erfahrener Ringer), müsst ihr mindestens in der Mittelstufen-Klasse antreten.
+                        Falls es euch schwerfällt festzulegen, in welcher Klasse ihr starten sollte, weil ihr schon x-Jahre trainiert aber es euer erstes Turnier ist, ihr keine Gurt-Promotionen aus verschiedene Gründen hattet, oder mit Unterbrechungen trainiert habt, bitten wir euch, euch aus eurer Komfortzone herauszugehen und die Herausforderung anzunehmen. Alternativ könnt ihr uns auch nochmal per Mail oder Facebook anschreiben, und wir helfen euch bei der Auswahl der passenden Klasse.
+                        Falls wir deutliche Zeichen von sand-bagging sehen, wird der entsprechende Teilnehmer und sein ganzes Team disqualifiziert ohne Rückerstattung der Anmeldegebühr.
+                    </p>
+                    <p>
+                        <p>
+                        3. GEWICHTSKLASSEN
+                        </p>
+                        -Strohgewicht (-53 Kg, nur für Frauen)
+                        -Fliegengewicht (-57 Kg, nur für Frauen)
+                        -Bantamgewicht (-61 Kg)
+                        -Federgewicht (-65 Kg)
+                        -Leichtgewicht (70 Kg)
+                        -Weltergewicht (-77 Kg)
+                        -Mittelgewicht (-84 Kg)
+                        -Halbschwergewicht (-93 Kg)
+                        -Schwergewicht (-110 Kg)
+                        -Super Schwergewicht (+110 Kg)
+                        Gewogen wird ab dem Zeitpunkt , wo die entsprechende Division aufgerufen wurde.
+                    </p>
+                    <p>
+                        <p>
+                        4. KAMPFZEIT
+                        </p>
+                        - Round robin und playoffs, Anfänger und Mittelklasse: 6 Minuten (Punkte werden nach der 3. Minute gezählt).
+                        - Finale, Anfänger und Mittelklasse: 8 Minuten (Punkte werden nach der 4. Minute gezählt).
+                        - Round robin und playoffs, Fortgeschrittene und Elite: 8 Minuten (Punkte werden nach der 4. Minute gezählt).
+                        - Finale, Mittelklasse und Elite: 10 Minuten (Punkte werden nach der 5. Minute gezählt).
+                        Bei einem Unentschieden, wird der Kampf um 4 Minuten verlängert (gefolgt von einem „golden point“ falls notwendig).
+                    </p>
+                    <p>
+                        <p>
+                        5. PUNKTESYSTEM
+                        </p>
+
+                        <ul>
+                            <li>
+                                    5.a. POSITIVE PUNKTE
+                                - Klarer Takedown (Ende der Bewegung resultiert in einer Kontrollposition): 4 Punkte
+                                - Takedown (Ende der Bewegung in der Guard des Gegners oder der Gegner steht direkt wieder auf): 2 Punkte
+                                - Jede Form der Kontrolle von oben auf einem auf dem Boden befindlichen Gegner (ausgenommen Mount und Back Mount) für mehr als 3 Sekunden, wenn der Gegner auf dem Boden liegt oder auch sich in der Turtle-Position befindet: 2 Punkte.
+                                Dies beinhaltet die klassische Side Control, Knee-on-belly, north-south und einen sogenannten seatbelt grip (Schulter zur Hüfte, oder um die Hüfte herum) bei einem sich in der Turtle-Position befindenden Gegner.
+                                -Jegliche Form der Mount-Position über einem sich mit einem oder zwei Schultern auf dem Boden befindenden Gegner: 3 Punkte.
+                                Dies beinhaltet die klassische Mount, Mount mit einem Arm des Gegners zwischen den Beinen des sich in der Mount befindenden und die sogenannte S-Mount.
+                                Es gibt keine Punkte für eine Mount, wenn beide Arme des Gegners zwischen den Beinen des sich in der Mount befindenden Gegners sind, oder für eine Umgekehrte-Mount (Gesicht des Kämpfers in der Mount schaut in Richtung der Füße des Gegners am Boden).
+                                - Jede Form der Kontrolle am Rücken (Back-Control), mit den Füßen eingehakt (hooks) oder auch gekreuzt, mit einer Body-Triangle , oder mit einem Arm zwischen den Beinen des Kontrollierenden: 4 Punkte.
+                                Es gibt keine Punkte für eine Kontrolle vom Rücken, wenn beide Arme des Gegners sich zwischen den Beinen des Kontrollierenden befinden.
+                            </li>
+                            <li>
+                                    5.b. NEGATIVE PUNKTE
+                                - Pulling guard, mit oder ohne Griff am Gegner: -2 Punkte.
+                                - Während des Kampfes im Stand: Den Gegner außerhalb des Kampfbereichs schieben ohne einen Takedown, Sweep oder Submission anzusetzen, oder den Kampf vermeiden und aus der Kampfzone absichtlich rausgehen um einen Takedown, Sweep oder Submission zu verhindern: -2 Punkte.
+                                - Während des Kampfes auf dem Boden: Absichtliches entfernen aus der Kampfzone um einer Kontrollposition oder Submission zu entfliehen: -2 Punkte.
+                                - Stalling (den Gegner in einer geschlossenen Guard oder in einer anderen Kontrollposition halten, Vermeidung eines Versuchs die Guard zu passieren, dem Kampf im Stand und auf dem Boden ausweichen): Eine Warnung wird nach 20 Sekunden ausgesprochen. Es werden 2 negative Punkte 20 Sekunden nach der Warnung vergeben, falls auf die Warnung nicht entsprechend reagiert wurde.
+                                - Versuchen den Griff des Gegners zu lösen indem man einen oder zwei Finger des Gegners greift: Warnung beim ersten Mal, 2 negative Punkte beim zweiten Mal.
+                                - Platzierung der Hände, Knie oder Ellbogen auf den Mund, Nase oder Augen des Gegners mit der Absicht die Atmung des Gegners zu verhindern oder Druck zu erzeugen: Warnung beim ersten Mal, 2 negative Punkte beim zweiten Mal.
+                                -Greifen der eigenen Kleidung, oder der des Gegners: Warnung beim ersten Mal, 2 negative Punkte beim zweiten Mal.
+                            </li>
+                            <li>
+                                5.c. DISQUALIFICATION:
+                                - Offensives, feindliches oder respektloses Verhalten dem Gegner, dem Schiedsrichter oder dem Publikum gegenüber. Dies beinhaltet unangemessene Sprache, obszöne Gesten, Schläge, Ziehen an den Haaren, beißen und Ausüben von Druck auf empfindliche Bereiche wie Genitalien und Augen.
+                                - Das Sprechen zum Schiedsrichter oder zum Team, wenn es sich dabei nicht um ein medizinisches oder ein Equipment Problem handelt.
+                                - Die Ausführung jeglicher illegalen Techniken (Siehe auch Punkt 7. ILLEGALE TECHNIKEN)
+                                - Drei Aktionen die allesamt negative Punkte als Konsequenz hatten.
+                                - Abgesprochene Kämpfe.
+                                Wichtig: Wenn ein Kämpfer disqualifiziert wird, werden alle weiteren möglichen Kämpfe dieses Kämpfers annulliert und es besteht kein Recht auf die Rückgabe der Startgebühr.
+                            </li>
+                        </ul>
+                    </p>
+
+                    <p>
+                        <p>
+                        6. LEGALE TECHNIKEN
+                        </p>
+                        - Alle Takedowns, die den Gegner nicht auf den Kopf aufkommen lassen.
+                        - Alle Würgegriffe (ausgenommen der Nutzung der Hände zum Würgen direkt an der Luftröhre).
+                        - Alle Hebelgriffe und Muskel-Quetscher mit Ausnahme der in „7. ILLEGALE TECHNIKEN“ aufgeführten Techniken
+                    </p>
+                    <p>
+
+                        <p>
+                        7. ILLIGALE TECHNIKEN
+                        </p>
+                        - Takedowns die den Gegner auf den Kopf werfen.
+                        - Bitte beachtet, dass bei einem Single Leg Takedown der Kopf des angreifenden Kämpfers sich nicht außerhalb des angegriffenen Beines befinden darf. Die Verteidigung eines Single Leg Takedowns durch halten einer Guillotine am Kopf des Gegners mit anschließendem absichtlichen Zug des Gegners mit dem Kopf zuerst auf den Boden, ist ebenfalls nicht erlaubt.
+                        - Springen in die Guard (Guard jumping).
+                        - Scissor takedown (Schere) oder kani-basami, auch wenn eine Hand den Boden berührt.
+                        - Full Nelson.
+                        - Jegliche Form von Genickhebeln (Crucifix Position ist erlaubt solange das Genick nicht gehebelt wird).
+                        - „Slamming“ des Gegners auf den Boden (siehe 6. DIE „SLAM” REGEL).
+                        - Für Anfänger: keine Heel Hooks, Knee Bars, Toe Holds, Wrist locks, Muskel Quetscher, Leisten Strecker (groin stretch) und gedrehte Wirbelsäule Hebel (Twister).
+                        - Für die Mittelklasse: keine Heel Hooks, Toe Holds, Wrist locks, Muskel Quetscher, Leisten Strecker (groin stretch) und gedrehte Wirbelsäule Hebel (Twister).
+                        - Für Fortgeschrittene: keine Muskel Quetscher und gedrehte Wirbelsäule Hebel (Twister).
+                    </p>
+                    <p>
+                        <p>
+                        8. DIE “SLAM” REGEL
+                        </p>
+                        - Das „slammen“ des Gegners ist nicht erlaubt.
+                        ABER: Falls der sich in einer Submission befindende Kämpfer (Verteidiger) aufsteht, und der Gegner über die Hüftlinie des Verteidigers gehoben wird (so dass der Verteidiger seinen Gegner slammen könnte) gilt die Submission als verteidigt. Hier wird der Schiedsrichter die Kämpfer separieren und der Kampf startet wieder in einer neutralen Position im Stand.
+                        Diese Regel findet keine Anwendung, wenn der Angreifer eine geschlossene Guard hält oder eine Rückenkontrolle hat. In diesem Fall läuft die Aktion normal weiter. Das slammen ist natürlich weiterhin verboten.
+                        Bsp. Anwendung der Slam Regel: Aufstehen bei einer Armbar und Triangle Position und Heben des Gegners über die HüftlinieàSubmission gilt als verteidigt und Start in einer neutralen Position.
+                            Bsp. keine Anwendung der Slam Regel: Verteidiger befindet sich in einer Guillotine und geschlossener Guard, steht auf und hebt den Gegner über seine Hüfteà keine Anwendung der Regel und die Submission gilt nicht als verteidigt. Die Aktion läuft weiter und der Verteidiger darf nicht slammen.
+                    </p>
+
+                </p>
+            </div>
+            </section>
+        </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    </div>
+</body>
+

@@ -1,0 +1,24 @@
+{% extends 'webpage/base.html' %}
+
+{% block blogContent %}
+
+    <p>
+        Nachricht von {{ post.user.username }}
+    </p>
+
+    <p>
+        {{ post.message }} - {{ post.created_at }}
+    </p>
+
+    {% if post.user == request.user %}
+
+
+    <form action="{% url 'webpage:delete_post' post.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Löschen</button>
+    </form>
+
+
+    {% endif %}
+
+{% endblock %}

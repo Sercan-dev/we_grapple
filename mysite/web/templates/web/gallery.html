@@ -1,0 +1,66 @@
+
+<html>
+
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    </head>
+
+    <body>
+        <header>
+            <div>
+                <img class="ui fluid image" style="height:400px;margin:0;" src="{{ MEDIA_URL }}main_pic.png">
+            </div>
+        </header>
+        <div class="ui inverted segment">
+            <div class="ui inverted secondary menu">
+                <ul class="left menu" style="list-style-type:none;">
+                    {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'web:logout' %} ">Logout</a></li>
+                    {% else %}
+                    <li><a class="item" href="{% url 'web:index' %} ">Home</a></li>
+                    <li><a class="item" href="{% url 'web:rules' %}">Rules</a></li>
+                    <li><a class="active yellow item" href="{% url 'web:gallery' %}">Gallery</a></li>
+                    <li><a class="item" href="{% url 'web:login' %} ">Login</a></li>
+                    <li><a class="item" href="{% url 'web:register' %} ">Register</a></li>
+                    <li><a class="item" href="#">Contact</a></li>
+                    <li><a class="item" href="https://www.facebook.com/wegrapple/"><i class="large facebook square icon"></i></a></li>
+                    <li><a class="item" href="https://www.instagram.com/wegrapple/"><i class="large instagram icon"></i></a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <section>
+            {% block content %}
+            <div class="ui horizontal segments">
+                <div class="ui centered huge image">
+                {% for photo in web %}
+                {% if photo.image %}
+                <img class="ui bordered image" src="{{ photo.image.url }}">
+                {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+            {% endblock %}
+            <footer>
+                <div class="ui center aligned grid">
+                    <div class="centered row">
+                        <p>© 2020 WeGrapple. All rights reserved</p>
+                    </div>
+                    <div class="ui list">
+                        <li><a class="item" href="https://www.facebook.com/wegrapple/"><i class="large facebook square icon"></i></a></li>
+                        <li><a class="item" href="https://www.instagram.com/wegrapple/"><i class="large instagram icon"></i></a></li>
+                    </div>
+                </div>
+                <style>
+                    footer {background-color: black;
+                            height: 200px;
+                            margin:0;
+
+                    }
+                    p    {color: white;}
+                </style>
+            </footer>
+        </section>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    </body>
+</html>

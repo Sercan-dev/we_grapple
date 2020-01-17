@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} #weGrapple{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+<body>
+    <header>
+        <div>
+            <img class="ui fluid image" style="height:400px;margin:0;" src="{{ MEDIA_URL }}main_pic.png">
+        </div>
+    </header>
+    <div class="ui inverted segment">
+        <div class="ui fluid inverted secondary menu">
+            <ul class="left menu" style="list-style-type:none;">
+                {% if request.user.is_authenticated %}
+                <p>Hallo {{request.user.username}}!</p>
+                <li><a href="{% url 'web:logout' %} ">Logout</a></li>
+                {% else %}
+                <li><a class="active yellow item" href="{% url 'web:index' %} ">Home</a></li>
+                <li><a class="item" href="{% url 'web:rules' %}">Rules</a></li>
+                <li><a class="item" href="{% url 'web:gallery' %}">Gallery</a></li>
+                <li><a class="item" href="{% url 'web:login' %} ">Login</a></li>
+                <li><a class="item" href="{% url 'web:register' %} ">Register</a></li>
+                <li><a class="item" href="#">Contact</a></li>
+                <li><a class="item" href="https://www.facebook.com/wegrapple/"><i class="large facebook square icon"></i></a></li>
+                <li><a class="item" href="https://www.instagram.com/wegrapple/"><i class="large instagram icon"></i></a></li>
+                {% endif %}
+                {% block authForm %}
+                {% endblock %}
+            </ul>
+        </div>
+    </div>
+    <video controls autoplay
+           src="https://mail-attachment.googleusercontent.com/attachment/u/0/?ui=2&ik=ae9b76574f&attid=0.0&permmsgid=msg-f:1636049171610284593&th=16b46a0dace73231&view=att&disp=safe&saddbat=ANGjdJ-u9NugqqBI3x9jcEn_73YNQEnwNjosq07WVkEmrUOwB3KFdio14MKiaDhUXl7tA9HVqra4k3fEoSyy_WVtpzCOYlVx3UqElEEcu8cJoK9I_9kYe3A1VB-9O558aabM4EnfjgdW2hFQrAkel6wrHh2cihFu9gAXU-jqIs808DxFxRC3rrZCz7XYuJ_f6QShLHJRIu7R7IKaUh3K8-KQpYUL0XzOU5cuoqUAt8COSdKdEdurHpS7S0UAbiZm2nUgn5zbZyaXwVlPzQmvAur_Advsvdn6rWi9O0q8IyUzhn8Eh7Vo5KJ49eJ3wzUl6VCrcAwkd4MsFBoFMF4SeDGCWXr8VUViH3HallPJNWe9G2aULKDayeU4oSyZgx7orGRUX1eKsRPky3OFJaKxvttIvZpcxDvWxIdPBy2w9Pu6SbCz4h1flxyO5qNxMS260NeJvGzxAR6WpOKEXxjP3JC7qRmzn5qgdF-j77TJ_iCktJ_JEfUUf9eI3aggRcCpAESYVl1PD6BLUazt1F30H89q09VTVINTIYEUvR6imlPeJXm0t_-PjkNVZgkLFywYC6qG0qsxNsGZ0kMENPTUatGuOeyGKdUoxpzlWFSPQu7Sps8phtmPHhd0UP4HiFY7mHJ-LSs3DTqNY1D4V9ijmLkweaoBUuzX4kJpwoG1UQ, https://mail.google.com/mail/u/0/"
+           width="100%"
+           height="600">
+    </video>
+
+
+
+
+
+
+    <h1 class="ui center aligned header">News</h1>
+
+
+    <div class="ui raised very padded text container segment">
+        <div class="ui form">
+            <div class="column twelve wide">
+                <div display="all" data="{{ latest }}" id="last"></div>
+                {% for post in posts %}
+                    <div>
+                        <div>
+                            <div class="ui clearing segment">
+                                <h4>{{ post.title | safe }}</h4>
+                                <h6><small>by {{ post.user.username }} on {{ post.timestamp | date}}</small></h6>
+                                <p>{{ post.content | safe | linebreaks }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    </div>
+</body>
+</html>
