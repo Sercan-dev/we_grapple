@@ -23,7 +23,6 @@ from web.views import gallery_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('webpage/', include('webpage.urls')),
     path('', include('web.urls')),
     path(r'^', include('web.urls', namespace='web')),
     path(r'^$', gallery_view, name='gallery_view')

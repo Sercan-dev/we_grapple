@@ -4,6 +4,26 @@
     <meta charset="UTF-8">
     <title>{% block title %} #weGrapple{% endblock %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style>
+    .style{   
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .navbar{
+        /* Sticky navbar*/
+
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+        background-color: black;
+    }
+
+    
+
+</style>    
 </head>
 <body>
     <header>
@@ -11,27 +31,34 @@
             <img class="ui fluid image" style="height:400px;margin:0;" src="{{ MEDIA_URL }}main_pic.png">
         </div>
     </header>
-    <div class="ui inverted segment">
-        <div class="ui fluid inverted secondary menu">
-            <ul class="left menu" style="list-style-type:none;">
-                {% if request.user.is_authenticated %}
-                <p>Hallo {{request.user.username}}!</p>
-                <li><a href="{% url 'web:logout' %} ">Logout</a></li>
-                {% else %}
-                <li><a class="active yellow item" href="{% url 'web:index' %} ">Home</a></li>
-                <li><a class="item" href="{% url 'web:rules' %}">Rules</a></li>
-                <li><a class="item" href="{% url 'web:gallery' %}">Gallery</a></li>
-                <li><a class="item" href="{% url 'web:login' %} ">Login</a></li>
-                <li><a class="item" href="{% url 'web:register' %} ">Register</a></li>
-                <li><a class="item" href="#">Contact</a></li>
-                <li><a class="item" href="https://www.facebook.com/wegrapple/"><i class="large facebook square icon"></i></a></li>
-                <li><a class="item" href="https://www.instagram.com/wegrapple/"><i class="large instagram icon"></i></a></li>
-                {% endif %}
-                {% block authForm %}
-                {% endblock %}
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" style="margin-left: 10px;" href="{% url 'web:index' %} "><img src="{{ MEDIA_URL }}nav.png " style="height: 25px; width: 120px;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'web:index' %} ">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'web:rules' %}">Rules</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'web:gallery' %}">Gallery</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{% url 'web:contact' %}">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="https://www.facebook.com/wegrapple/" target="_blank"><i class="large facebook square icon"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="https://www.instagram.com/wegrapple/" target="_blank"><i class="large instagram icon"></i></a>
+            </li>
             </ul>
         </div>
-    </div>
+    </nav>
     <video controls autoplay
            src="https://mail-attachment.googleusercontent.com/attachment/u/0/?ui=2&ik=ae9b76574f&attid=0.0&permmsgid=msg-f:1636049171610284593&th=16b46a0dace73231&view=att&disp=safe&saddbat=ANGjdJ-u9NugqqBI3x9jcEn_73YNQEnwNjosq07WVkEmrUOwB3KFdio14MKiaDhUXl7tA9HVqra4k3fEoSyy_WVtpzCOYlVx3UqElEEcu8cJoK9I_9kYe3A1VB-9O558aabM4EnfjgdW2hFQrAkel6wrHh2cihFu9gAXU-jqIs808DxFxRC3rrZCz7XYuJ_f6QShLHJRIu7R7IKaUh3K8-KQpYUL0XzOU5cuoqUAt8COSdKdEdurHpS7S0UAbiZm2nUgn5zbZyaXwVlPzQmvAur_Advsvdn6rWi9O0q8IyUzhn8Eh7Vo5KJ49eJ3wzUl6VCrcAwkd4MsFBoFMF4SeDGCWXr8VUViH3HallPJNWe9G2aULKDayeU4oSyZgx7orGRUX1eKsRPky3OFJaKxvttIvZpcxDvWxIdPBy2w9Pu6SbCz4h1flxyO5qNxMS260NeJvGzxAR6WpOKEXxjP3JC7qRmzn5qgdF-j77TJ_iCktJ_JEfUUf9eI3aggRcCpAESYVl1PD6BLUazt1F30H89q09VTVINTIYEUvR6imlPeJXm0t_-PjkNVZgkLFywYC6qG0qsxNsGZ0kMENPTUatGuOeyGKdUoxpzlWFSPQu7Sps8phtmPHhd0UP4HiFY7mHJ-LSs3DTqNY1D4V9ijmLkweaoBUuzX4kJpwoG1UQ, https://mail.google.com/mail/u/0/"
            width="100%"
@@ -41,41 +68,84 @@
 
 
 
-
-
-    <h1 class="ui center aligned header">News</h1>
-
-
-    <div class="ui raised very padded text container segment">
-        <div class="ui form">
-            <div class="column twelve wide">
-                <div display="all" data="{{ latest }}" id="last"></div>
-                {% for post in posts %}
-                    <div>
-                        <div>
-                            <div class="ui clearing segment">
-                                <h4>{{ post.title | safe }}</h4>
-                                <h6><small>by {{ post.user.username }} on {{ post.timestamp | date}}</small></h6>
-                                <p>{{ post.content | safe | linebreaks }}</p>
+    <div class="style">
+        <h1 class="ui center aligned header">News</h1>
+        <div class="ui raised very padded text container segment">
+            <div class="ui form">
+                <div class="column twelve wide">
+                    <div display="all" data="{{ latest }}" id="last"></div>
+                    {% for post in posts %}
+                        <div class="style">
+                            <div>
+                                <div class="ui clearing segment">
+                                    <h4>{{ post.title | safe }}</h4>
+                                    <h6><small>by {{ post.user.username }} on {{ post.timestamp | date}}</small></h6>
+                                    <p>{{ post.content | safe | linebreaks }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
+    <footer>
+        <div class="footerStyle">
+        <div class="ui center aligned grid">
+            <div class="ui list" style="display: flex;">
+                <li><a href="https://www.facebook.com/wegrapple/" target="_blank"><i class="facebook square icon" style="font-size: 30px;"></i></a></li>
+                <li><a href="https://www.instagram.com/wegrapple/" target="_blank"><i class="instagram icon" style="font-size: 30px;"></i></a></li>
+            </div> 
+            <div class="centered row">
+                <p>© 2020 WeGrapple. Alle Rechte vorbehalten</p>
+            </div>   
+        </div> 
+        </div>   
+        <hr/>
+        <div class="bottom"> Design by:
+            <a href="https://beechwaydesigns.com/" target="_blank">Beech Way</a>
+        </div>
+        <style>
+         
+            footer{
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: black;
+                color: white;
+                text-align: center;
+                padding-top: 50px;
+                
+            }
+
+            footer a{
+                color: white;  
+            }
+
+            .bottom{
+                padding: 10px;
+                background: black;
+                font-size: 12px;
+            }
+
+            .bottom a{
+                color: goldenrod;
+            }
+
+            footer hr{
+                border-top: 0.5px;
+            }
 
 
-
-
-
-
-
-
-
+            
+        </style>
+    </footer>
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </div>
 </body>
 </html>
