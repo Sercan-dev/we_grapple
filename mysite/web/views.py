@@ -1,5 +1,5 @@
 
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.cache import cache
@@ -9,18 +9,12 @@ from django.urls import reverse
 from django.views.decorators.cache import cache_page
 
 
-
 from .models import Post, LastUpdate, Photo
 from .forms import PostForm
 
 
 def index(request):
     return render(request, 'web/base.html')
-
-
-def logout_view(request):
-    logout(request)
-    return redirect(reverse('web:index'))
 
 
 def rules_view(request):
