@@ -25,7 +25,7 @@ SECRET_KEY = '98_ro)fcohn1kpxjolrk+8p$bu9)6j4&^x!s2o&x_q)4c-zg2p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['wegrapple2.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['wegrapple3.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
