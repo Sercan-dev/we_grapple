@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '98_ro)fcohn1kpxjolrk+8p$bu9)6j4&^x!s2o&x_q)4c-zg2p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['wegrapple.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
