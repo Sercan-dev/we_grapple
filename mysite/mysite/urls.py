@@ -26,8 +26,7 @@ urlpatterns = [
     path('', include('web.urls')),
     path(r'^', include('web.urls', namespace='web')),
     path(r'^$', gallery_view, name='gallery_view')
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
